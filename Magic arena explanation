@@ -1,0 +1,28 @@
+This is a magic arena file in which I have described the details as follows:
+Class Player
+
+This class represents a player in the Magical Arena game. It has three attributes:
+
+health: an integer representing the player's current health
+strength: an integer representing the player's strength
+attack: an integer representing the player's attack power
+The class has a constructor Player(int health, int strength, int attack) that initializes these attributes when a new player is created.
+The class also has a method attack(Player defender) that simulates an attack by the player on another player (defender). Here's what the method does:
+It creates a new Random object to generate random numbers for the dice rolls.
+It rolls two dice: one for the attacker (using random.nextInt(6) + 1) and one for the defender (using random.nextInt(6) + 1). The + 1 is to shift the range from 0-5 to 1-6.
+It calculates the attack damage by multiplying the attacker's attack attribute by the result of the attacking dice roll.
+It calculates the defend strength by multiplying the defender's strength attribute by the result of the defending dice roll.
+It calculates the damage dealt to the defender by subtracting the defend strength from the attack damage. If the result is negative, it sets the damage dealt to 0 (using Math.max(0, ...)).
+It reduces the defender's health attribute by the damage dealt.
+It prints out a message indicating the results of the attack, including the dice rolls, attack damage, defend strength, and the defender's new health.
+Class MagicalArena
+
+This class represents the Magical Arena game itself. It has a single method main(String[] args) that is the entry point of the program.
+
+Here's what the main method does:
+
+It creates two players, playerA and playerB, with initial health, strength, and attack values.
+It enters a loop that continues until one of the players' health reaches 0.
+Inside the loop, it checks which player has lower health and makes that player attack the other player using the attack method.
+After each attack, it prints out a blank line to separate the output.
+Once the loop exits, it prints out a message indicating which player won the game.
